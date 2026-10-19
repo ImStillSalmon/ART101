@@ -1,0 +1,80 @@
+body {
+    background: #000000;
+    background: radial-gradient(circle at center,rgba(0, 0, 0, 1) 20%, rgba(1, 0, 38, 1) 50%, rgba(16, 0, 117, 1) 100%);
+    min-height: 100vh;
+    margin: 0;
+} 
+
+#textbox {
+    width: 500px;
+    position: fixed;
+    left: 50%;
+    bottom: -50px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-style: ridge;
+    border-width: 10px;
+}
+
+#top {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+   
+}
+
+#rock1 {
+    width: 70px;
+    height: auto;
+    margin-top: 15px;
+}
+#rock2 {
+    width: 70px;
+    height: auto;
+   margin-top: 30px; 
+}
+#rock3 {
+    width: 70px;
+    height: auto;
+    margin-top: 20px;
+}
+#rock4 {
+    width: 70px;
+    height: auto;
+    transform: scaleX(-1);
+}
+#rock5 {
+    width: 70px;
+    height: auto;
+   margin-top: 0px; 
+}
+#rock6 {
+    width: 70px;
+    height: auto;
+   margin-top: 0px; 
+}
+#main {
+    display: flex;
+    gap: 10px;
+}
+
+#boat {
+    width: 50px;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#shark {
+    width: 300px;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
