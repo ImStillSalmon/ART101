@@ -4,65 +4,77 @@ let environmentElements = ["Dark", "Wet", "Cold", "Quiet"];
 
 let mainEntity = {
     name: "The Depths",
+    type: "soft border",
     mood: "suspicious",
     SharkCount: "four",
     isMoving: true,
     favoriteElement: environmentElements[1],
-    tips : ["Its very cold, you should bundle up and stay warm.",
-            "There are at least 4 sharks in the water, swimming would be a death sentence.",
-            "Maybe those the water is more shallow by those rocks?",
-            "Figure it out yourself stop bothering me!"]
 };
-$("help-button").click(function () {
 
-    count = count + 1;
-    
-    
-    if (count < 4) {
-     let arrayPosition = count - 1;
-    }
-    let currentTip = mainEntity.tips[arrayPosition];
-    
-    let message = "<p>Tip Number " + count + "</p>";
-    message = message + currentTip 
-    
-    console.log(count);
-    console.log(arrayPosition);
-    console.log(currentTip);
+let tips = [
+    "Its very cold, you should bundle up and stay warm.",
+    "There are at least 4 sharks in the water, swimming would be a death sentence.",
+    "Maybe those the water is more shallow by those rocks?",
+    "Figure it out yourself stop bothering me!"
+];
 
+let count = 0;
+let sosCount = 0;
 
+$(document).ready(function () {
+    let infoCount = 0;
+    
+    $("#info-button").click(function  () {
+        infoCount = infoCount + 1;
 
-    $("#output").html(message);
-    console.log(count);
-    console.log(arrayPosition);
-    console.log(currentTip);
+        let arrayPosition = (infoCount - 1) % environmentElements.length;
+        let currentElement = environmentElements[arrayPosition];
+
+        let message = `
+            <h2>${environmentTitle}</h2>
+
+            <h3>Info</h3>
+            <p><strong>Name:</strong> ${mainEntity.name}</p>
+            <p><strong>Type:</strong> ${mainEntity.type}</p>
+            <p><strong>Mood:</strong> ${mainEntity.mood}</p>
+            <p><strong>Sharks:</strong> ${mainEntity.SharkCount}</p>
+            <p><strong>Moving:</strong> ${mainEntity.isMoving}</p>
+            <p><strong>Element:</strong>
+            ${currentElement}</p>
+        `;
+
+        $("#infoContent").html(message);
+        $("#infoPanel").stop(true, true).fadeIn();
+    });
+
+    $("#help-button").click(function () {
+        let currentTip = tips[count % tips.length];
+
+        let message = `
+            <h2>Tip Number ${(count % tips.length) + 1}</h2>
+            <p>${currentTip}</p>
+        `;
+
+        count++;
+
+        $("#infoContent").html(message);
+        $("#infoPanel").stop(true, true).fadeIn();
+    });
+
+    $("#sos-button").click(function () {
+        sosCount++;
+
+        let message = `
+            <h2>Distress Signal</h2>
+            <p>SOS messages sent: ${sosCount}</p>
+            <p>You hope someone can hear you...</p>
+        `;
+
+        $("#infoContent").html(message);
+        $("#infoPanel").stop(true, true).fadeIn();
+    });
+
+    $("#closePanel").click(function () {
+        $("#infoPanel").fadeOut();
+    });
 });
-$("SOS-button").click(function () {
-
-    count2 = count2 + 1;
-    
-    
-
-    message2 = message2 + "<p>you have called for help " + count2 + " times.</p>";
-
-    console.log(count2);
-
-    $("#output2").html(message2);
-    console.log(count2);
-
-});
-$("Info-button").click(function () {
-   count3 = count3 + 1;
-   if (count3 < 4) {
-     let arrayPosition = count3 - 1;
-    }
-    let currentFeel = environmentElements[arrayPosition];
-   message3 = message3 + "<p>you are in " + mainEntity.name + ".</p>";
-   message3 = message3 + "<p>you are feeling " + mainEntity.mood + ".</p>";
-   message3 = message3 + "<p> it is" + currentFeel + ".</p>";
-   $("#output3").html(message3);
-    console.log(count3);
-    console.log(arrayPosition);
-    console.log(currentTip);
-});
-
