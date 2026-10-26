@@ -2,7 +2,7 @@ let count = 0;
 let buttonCreature = {
     name: "Crazy Rock",
     species: "Earth Creature",
-    favoriteThing: "clicks",
+    favoriteThing: "dirt",
     moods: ["happy", "scared", "stoney", "hopeless", "terrified", "excited"]
 };
 $("#needy-button").click(function () {
